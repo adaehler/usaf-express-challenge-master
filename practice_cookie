@@ -1,0 +1,22 @@
+const express = require('express')
+const appp = express()
+//const users = require('./users.json')
+const bodyParser = require('body-parser');
+
+
+appp.use(bodyParser.urlencoded({extended: true}));
+appp.use(bodyParser.json());
+
+appp.get('/login', function(req, res) {
+
+    var cat = res.cookie('Michael');
+    res.send(cat)
+})
+
+/*
+Create an Express application that sets a cookie when routed
+to /login with their name. If a cookie is present with a name key, 
+then it says "Welcome {name}! when the user routes to /hello".
+*/
+
+appp.listen(port, () => console.log('Cookie app listening at http://localhost:3000'))
